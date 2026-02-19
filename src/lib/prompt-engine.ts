@@ -4,7 +4,7 @@ export type PromptTone = "clair" | "pédagogique" | "percutant";
 export type PromptVariantType = "safe" | "balanced" | "aggressive";
 
 export const promptIntakeSchema = z.object({
-  goal: z.string().min(6, "Décris l’objectif du prompt."),
+  goal: z.string().min(6, "Décris l'objectif du prompt."),
   context: z.string().optional(),
   tone: z.string().optional(),
   constraints: z.string().optional(),
@@ -42,7 +42,7 @@ const baseExamples = {
   linkedin: {
     title: "Post LinkedIn B2B",
     prompt:
-      "Tu es un copywriter B2B. Objectif: annoncer un webinar sur l’IA. Audience: PM/Marketing. Ton: clair, crédible. Contraintes: 120-150 mots, 1 call-to-action, pas de jargon. Format: texte simple avec 3 bullets clés.",
+      "Tu es un copywriter B2B. Objectif: annoncer un webinar sur l'IA. Audience: PM/Marketing. Ton: clair, crédible. Contraintes: 120-150 mots, 1 call-to-action, pas de jargon. Format: texte simple avec 3 bullets clés.",
   },
   refacto: {
     title: "Refacto code TypeScript",
@@ -72,7 +72,7 @@ export function generateVariants(intake: PromptIntake): PromptVariant[] {
       type: "safe",
       title: "Variante Safe",
       content: basePrompt(
-        "Ajoute des avertissements si l’information manque. Cite les sources ou indique si l’information est hypothétique.",
+        "Ajoute des avertissements si l'information manque. Cite les sources ou indique si l'information est hypothétique.",
         "Prudent"
       ),
       score: 82,
@@ -83,7 +83,7 @@ export function generateVariants(intake: PromptIntake): PromptVariant[] {
       type: "balanced",
       title: "Variante Balanced",
       content: basePrompt(
-        "Utilise un ton neutre et rappelle de demander les données manquantes avant d’exécuter.",
+        "Utilise un ton neutre et rappelle de demander les données manquantes avant d'exécuter.",
         "Neutre"
       ),
       score: 88,
@@ -94,7 +94,7 @@ export function generateVariants(intake: PromptIntake): PromptVariant[] {
       type: "aggressive",
       title: "Variante Aggressive",
       content: basePrompt(
-        "Optimise pour la concision et la vitesse. Suppose des valeurs raisonnables si une donnée est absente et signale l’assumption dans la sortie.",
+        "Optimise pour la concision et la vitesse. Suppose des valeurs raisonnables si une donnée est absente et signale l'assumption dans la sortie.",
         "Direct"
       ),
       score: 80,
@@ -119,7 +119,7 @@ export function critiquePrompt(content: string): PromptCritique {
   ];
 
   const questions = [
-    "Quelle est la source d’autorité ou le style de référence ?",
+    "Quelle est la source d'autorité ou le style de référence ?",
     "Faut-il inclure des exemples négatifs à éviter ?",
   ];
 
